@@ -1,0 +1,22 @@
+type Todo {
+  id: ID!
+  name: String!
+  completed: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type RootQuery {
+  getTodos: [Todo!]!
+  getTodo(id: ID!): Todo!
+}
+type RootMutation {
+  createTodo(name: String!, completed: Boolean!): Todo
+  deleteTodo(id: ID!): String
+  updateTodo(id: ID!, name: String!, completed: Boolean!): Todo
+}
+
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
